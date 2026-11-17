@@ -1,15 +1,50 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import Link from "next/link";
-import Image from "next/image";
+import { Fraunces, IBM_Plex_Mono, Manrope } from "next/font/google";
+import Script from "next/script";
+import SiteNav from "./components/site/SiteNav";
+import SiteFooter from "./components/site/SiteFooter";
+import Motion from "./components/site/Motion";
 
-const inter = Inter({ subsets: ["latin"] });
+const display = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  axes: ["SOFT", "WONK", "opsz"],
+  display: "swap",
+});
+
+const sans = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+});
+
+const mono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Sam Kaveh's Personal Web page",
+  title: {
+    default: "Sam Kaveh — Staff Software Engineer & AI Systems Architect",
+    template: "%s — Sam Kaveh",
+  },
   description:
-    "A personal webpage to know a little about me and my work experiences.",
+    "Sam Kaveh, PhD — Staff Software Engineer building agentic AI systems, demand forecasting platforms and large-scale data infrastructure. Combining scientific rigor with end-to-end software ownership.",
+  openGraph: {
+    title: "Sam Kaveh — Staff Software Engineer & AI Systems Architect",
+    description:
+      "Staff Software Engineer specializing in applied ML/AI, agentic systems, and high-scale data platforms.",
+    type: "website",
+  },
+};
+
+export const viewport = {
+  themeColor: "#f4eee3",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -18,41 +53,30 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <div className="navbar bg-base-200 ">
-          <div className="navbar-start">
-            <Link className="btn btn-ghost btn-circle" href="/">
-              <Image
-                src="https://raw.githubusercontent.com/hessikaveh/personal-webpage/main/app/favicon.ico"
-                width={256}
-                height={256}
-                alt="Sam Kaveh"
-              />
-            </Link>
-          </div>
-          <div className="navbar-center">
-            <ul className="menu menu-vertical lg:menu-horizontal bg-base-300 rounded-box">
-              <li>
-                {" "}
-                <Link href="/">About Me</Link>
-              </li>
-              <li>
-                <Link href="/projects/">Projects</Link>
-              </li>
-              <li>
-                <Link href="/talks/">Talks</Link>
-              </li>
-              <li>
-                <Link href="/blog/">Blog</Link>
-              </li>
-            </ul>
-          </div>
-          <div className="navbar-end">
-
-          </div>
-        </div>
-        <div>{children}</div>
+    <html
+      lang="en"
+      className={`${display.variable} ${sans.variable} ${mono.variable}`}
+    >
+      <body>
+        <noscript>
+          <style>{`[data-reveal]{opacity:1 !important;transform:none !important}`}</style>
+        </noscript>
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
+        <SiteNav />
+        <Motion />
+        <main id="main">{children}</main>
+        <SiteFooter />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-EV51J1SKL9" />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-EV51J1SKL9');
+          `}
+        </Script>
       </body>
     </html>
   );
