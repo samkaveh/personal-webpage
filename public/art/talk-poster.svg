@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="tpTitle tpDesc">
+  <title id="tpTitle">Talk poster — a quiet pomegranate</title>
+  <desc id="tpDesc">A dark ink stage with a small, fine-line pomegranate branch and the title of Sam Kaveh's Rust physics engine talk.</desc>
+  <defs>
+    <linearGradient id="stage" x1="0" y1="0" x2=".3" y2="1">
+      <stop offset="0" stop-color="#241a15"/>
+      <stop offset=".55" stop-color="#1b1512"/>
+      <stop offset="1" stop-color="#100c0a"/>
+    </linearGradient>
+    <radialGradient id="warm" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#c78d54" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#c78d54" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grain" width="4" height="4" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r=".32" fill="#f2dfc4" opacity=".08"/>
+      <circle cx="3" cy="3" r=".26" fill="#f2dfc4" opacity=".05"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="720" fill="url(#stage)"/>
+  <rect width="1280" height="720" fill="url(#grain)"/>
+  <ellipse cx="1000" cy="330" rx="380" ry="320" fill="url(#warm)"/>
+
+  <!-- fine-line specimen on the right -->
+  <g transform="translate(826 150) scale(0.92)" opacity=".82">
+    <g fill="none" stroke="#d8b37d" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".62">
+      <path d="M22 42 C 82 66 138 40 190 28 C 234 18 278 24 310 42" stroke-width="1.1"/>
+      <path d="M154 42 C 150 68 144 92 138 114" stroke-width=".9"/>
+      <g transform="translate(80 56) rotate(-18) scale(1 1)">
+    <path d="M0 0 C 15.08 -13 41.76 -11.700000000000001 58 0 C 41.76 11.700000000000001 15.08 13 0 0 Z"
+      fill="#d8b37d" fill-opacity=".04" stroke="#d8b37d" stroke-width=".9" stroke-opacity=".72"/>
+    <path d="M 4.64 0 C 19.720000000000002 -1.04 37.12 -0.78 51.04 0"
+      fill="none" stroke="#d8b37d" stroke-width=".55" stroke-opacity=".4"/>
+  </g>
+      <g transform="translate(214 31) rotate(5) scale(1 1)">
+    <path d="M0 0 C 15.08 -13 41.76 -11.700000000000001 58 0 C 41.76 11.700000000000001 15.08 13 0 0 Z"
+      fill="#d8b37d" fill-opacity=".04" stroke="#d8b37d" stroke-width=".9" stroke-opacity=".72"/>
+    <path d="M 4.64 0 C 19.720000000000002 -1.04 37.12 -0.78 51.04 0"
+      fill="none" stroke="#d8b37d" stroke-width=".55" stroke-opacity=".4"/>
+  </g>
+      <g transform="translate(274 30) rotate(26) scale(-1 1)">
+    <path d="M0 0 C 10.92 -10 30.24 -9 42 0 C 30.24 9 10.92 10 0 0 Z"
+      fill="#d8b37d" fill-opacity=".04" stroke="#d8b37d" stroke-width=".9" stroke-opacity=".72"/>
+    <path d="M 3.36 0 C 14.280000000000001 -0.8 26.88 -0.6 36.96 0"
+      fill="none" stroke="#d8b37d" stroke-width=".55" stroke-opacity=".4"/>
+  </g>
+      <g transform="translate(198 160) rotate(-8) scale(1 1)">
+    <path d="M0 0 C 11.440000000000001 -11 31.68 -9.9 44 0 C 31.68 9.9 11.440000000000001 11 0 0 Z"
+      fill="#d8b37d" fill-opacity=".04" stroke="#d8b37d" stroke-width=".9" stroke-opacity=".72"/>
+    <path d="M 3.52 0 C 14.96 -0.88 28.16 -0.6599999999999999 38.72 0"
+      fill="none" stroke="#d8b37d" stroke-width=".55" stroke-opacity=".4"/>
+  </g>
+      <g transform="translate(136 210)">
+        <path d="M0 -38 C 31 -39 53 -17 54 12 C 56 44 36 72 1 76 C -34 80 -57 55 -58 23 C -59 -9 -32 -37 0 -38 Z" stroke-width="1.2" fill="#d8b37d" fill-opacity=".015"/>
+        <path d="M-15 -38 C -17 -47 -22 -54 -28 -60 C -20 -59 -14 -56 -10 -51 C -11 -60 -11 -68 -8 -74 C -5 -67 -2 -59 -1 -52 C 2 -59 7 -66 13 -70 C 11 -62 10 -54 11 -46 C 16 -53 23 -57 30 -57 C 24 -49 20 -43 17 -35" stroke-width="1.05"/>
+        <path d="M-50 18 C -48 39 -32 54 -12 60" stroke-width=".6" stroke-opacity=".4"/>
+      </g>
+      <g transform="translate(292 72) rotate(-8) scale(0.82)">
+    <path d="M0 0 C 5 -5 7 -12 0 -17 C -7 -12 -5 -5 0 0 Z" transform="rotate(0)" fill="none" stroke="#d8b37d" stroke-width=".85" stroke-opacity=".7"/><path d="M0 0 C 5 -5 7 -12 0 -17 C -7 -12 -5 -5 0 0 Z" transform="rotate(72)" fill="none" stroke="#d8b37d" stroke-width=".85" stroke-opacity=".7"/><path d="M0 0 C 5 -5 7 -12 0 -17 C -7 -12 -5 -5 0 0 Z" transform="rotate(144)" fill="none" stroke="#d8b37d" stroke-width=".85" stroke-opacity=".7"/><path d="M0 0 C 5 -5 7 -12 0 -17 C -7 -12 -5 -5 0 0 Z" transform="rotate(216)" fill="none" stroke="#d8b37d" stroke-width=".85" stroke-opacity=".7"/><path d="M0 0 C 5 -5 7 -12 0 -17 C -7 -12 -5 -5 0 0 Z" transform="rotate(288)" fill="none" stroke="#d8b37d" stroke-width=".85" stroke-opacity=".7"/>
+    <circle r="2.4" fill="#d8b37d" fill-opacity=".7"/>
+    <circle r="1.1" fill="#d8b37d" fill-opacity=".55"/>
+  </g>
+    </g>
+  </g>
+
+  <!-- frame and labels -->
+  <rect x="30" y="30" width="1220" height="660" fill="none" stroke="#d8b37d" stroke-width=".75" opacity=".26"/>
+  <g font-family="'IBM Plex Mono', ui-monospace, monospace" fill="#d9c3a5" opacity=".7" font-size="10.5" letter-spacing="3.4">
+    <text x="68" y="74">PYCON &amp; PYDATA DE 2025</text>
+    <text x="1212" y="74" text-anchor="end">TALK · 01</text>
+    <text x="1212" y="658" text-anchor="end">1280 × 720</text>
+  </g>
+  <g font-family="'Iowan Old Style', Georgia, serif" fill="#f4e6d2">
+    <text x="68" y="522" font-size="44" letter-spacing="-1">A small Rust physics engine,</text>
+    <text x="68" y="566" font-size="32" font-style="italic" fill="#d8b37d" letter-spacing="-.3">with Python at the door.</text>
+  </g>
+  <path d="M68 594 H330" stroke="#d8b37d" stroke-width=".8" opacity=".35"/>
+  <g font-family="'IBM Plex Mono', ui-monospace, monospace" fill="#d9c3a5" opacity=".6" font-size="9.5" letter-spacing="2.6">
+    <text x="68" y="622">RUST · PYTHON · WASM</text>
+  </g>
+</svg>

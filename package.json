@@ -29,10 +29,13 @@
     "remark-gfm": "^4.0.1",
     "remark-github-blockquote-alert": "^2.1.0",
     "tailwindcss": "^4.3.3",
+    "three": "^0.187.0",
     "typescript": "^6"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.20",
-    "daisyui": "^5.7.22"
+    "@types/three": "^0.187.0",
+    "daisyui": "^5.7.22",
+    "playwright": "1.65.1"
   }
 }
