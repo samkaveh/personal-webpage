@@ -913,6 +913,7 @@ i {
 }
 
 .about-mark {
+  --mark-weight: 0.9;
   width: 36px;
   height: 36px;
   color: var(--pom);
@@ -1123,6 +1124,7 @@ i {
 }
 
 .plate-mark {
+  --mark-weight: 0.62;
   width: clamp(72px, 10vw, 124px);
   height: auto;
   color: var(--gold);
