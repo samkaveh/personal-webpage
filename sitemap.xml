@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://samkaveh.github.io/personal-webpage/</loc>
+</url>
+<url>
+<loc>https://samkaveh.github.io/personal-webpage/projects/</loc>
+</url>
+<url>
+<loc>https://samkaveh.github.io/personal-webpage/talks/</loc>
+</url>
+<url>
+<loc>https://samkaveh.github.io/personal-webpage/blog/</loc>
+</url>
+<url>
+<loc>https://samkaveh.github.io/personal-webpage/blog/ai_safety/</loc>
+<lastmod>2026-09-28</lastmod>
+</url>
+<url>
+<loc>https://samkaveh.github.io/personal-webpage/blog/halting_problem/</loc>
+<lastmod>2026-02-22</lastmod>
+</url>
+</urlset>

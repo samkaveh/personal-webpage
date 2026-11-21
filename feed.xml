@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sam Kaveh — Writing</title>
+    <link>https://samkaveh.github.io/personal-webpage/blog/</link>
+    <atom:link href="https://samkaveh.github.io/personal-webpage/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Occasional notes on agentic AI, machine learning, and engineering at scale.</description>
+    <language>en</language>
+    <item>
+      <title>Weapons of mass instruction</title>
+      <link>https://samkaveh.github.io/personal-webpage/blog/ai_safety/</link>
+      <guid isPermaLink="true">https://samkaveh.github.io/personal-webpage/blog/ai_safety/</guid>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Recently some of the employees of AI frontier labs claimed there is a chance that AI could kill all humanity within the next decade and gave probability in percents. Unfortunately, the method or the c…</description>
+    </item>
+    <item>
+      <title>Agentic AI and the Place for Human Ingenuity</title>
+      <link>https://samkaveh.github.io/personal-webpage/blog/halting_problem/</link>
+      <guid isPermaLink="true">https://samkaveh.github.io/personal-webpage/blog/halting_problem/</guid>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 GMT</pubDate>
+      <description>Recently I came across a note on the place of human creativity and ingenuity in mathematics that was written before the LLMs and agentic AI's popularity. Namely I was looking up a concept on the Princ…</description>
+    </item>
+  </channel>
+</rss>
