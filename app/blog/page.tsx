@@ -1,67 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import { ArrowUpRight } from "../components/site/Icons";
+import { asset } from "../lib/asset";
+import { formatDate, getPosts } from "../lib/posts";
 
 export const metadata: Metadata = {
   title: "Writing",
   description:
     "Occasional notes by Sam Kaveh on agentic AI, machine learning, systems architecture, and engineering at scale.",
+  alternates: {
+    canonical: "/blog/",
+    types: {
+      "application/rss+xml": [{ url: "/feed.xml", title: "Sam Kaveh — Writing" }],
+    },
+  },
 };
 
-const months = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
-
-function formatDate(value: string) {
-  const [year, month, day] = value.split("-").map(Number);
-  if (!year || !month || !day) return value;
-  return `${day} ${months[month - 1]} ${year}`;
-}
-
-function excerpt(markdown: string) {
-  const plain = markdown
-    .replace(/```[\s\S]*?```/g, " ")
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ")
-    .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
-    .replace(/\[![A-Z]+\]/g, " ")
-    .replace(/[#>*_`~]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-  return plain.length > 200 ? `${plain.slice(0, 200).trimEnd()}…` : plain;
-}
-
 export default function Page() {
-  const contentDir = path.join(process.cwd(), "content");
-  const posts = fs
-    .readdirSync(contentDir)
-    .filter((file) => file.endsWith(".md"))
-    .map((file) => {
-      const source = fs.readFileSync(path.join(contentDir, file), "utf-8");
-      const { data, content } = matter(source);
-      const words = content.split(/\s+/).filter(Boolean).length;
-      return {
-        slug: file.replace(/\.md$/, ""),
-        title: (data.title as string) || file,
-        date: (data.date as string) || "",
-        excerpt: excerpt(content),
-        minutes: Math.max(1, Math.round(words / 220)),
-      };
-    })
-    .sort((a, b) => (a.date < b.date ? 1 : -1));
+  const posts = getPosts();
 
   return (
     <>
@@ -110,7 +66,10 @@ export default function Page() {
           ))}
         </div>
 
-        <p style={{ marginTop: "2rem" }} data-reveal>
+        <p className="blog-foot" data-reveal>
+          <a className="link-quiet" href={asset("/feed.xml")}>
+            Subscribe via RSS
+          </a>
           <a
             className="link-quiet"
             href="https://www.linkedin.com/in/sam-kaveh/"

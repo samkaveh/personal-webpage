@@ -9,6 +9,7 @@ import {
 import { ArrowUpRight } from "../components/site/Icons";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/projects/" },
   title: "Work",
   description:
     "Selected work by Sam Kaveh: customer-facing agentic MLOps, sustainable supply chains, full-dome graphics software, and large-scale data pipelines.",
