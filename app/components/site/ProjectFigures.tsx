@@ -11,13 +11,22 @@ const label = {
   fill: mute,
 } as const;
 
+/* Labels that sit over lines get a paper-coloured halo so they stay legible. */
+const halo = {
+  ...label,
+  stroke: "var(--paper, #f4eee3)",
+  strokeWidth: 4,
+  strokeLinejoin: "round",
+  paintOrder: "stroke",
+} as const;
+
 export function AgenticFigure() {
   const agents = [
-    { x: 450, y: 48, num: "01", title: "PLAN", subtitle: "DAG & Context", anchor: "middle", accent: pom },
-    { x: 620, y: 128, num: "02", title: "TOOLS", subtitle: "MCP & Query Engine", anchor: "start", accent: sage },
+    { x: 450, y: 54, num: "01", title: "PLAN", subtitle: "DAG & Context", anchor: "start", accent: pom },
+    { x: 624, y: 112, num: "02", title: "TOOLS", subtitle: "MCP & Query Engine", anchor: "start", accent: sage },
     { x: 556, y: 282, num: "03", title: "RAG", subtitle: "Knowledge & Code", anchor: "start", accent: gold },
     { x: 344, y: 282, num: "04", title: "RUNNER", subtitle: "What-If & Provenance", anchor: "end", accent: pom },
-    { x: 280, y: 128, num: "05", title: "EVAL", subtitle: "Gates & Human Loop", anchor: "end", accent: sage },
+    { x: 276, y: 112, num: "05", title: "EVAL", subtitle: "Gates & Human Loop", anchor: "end", accent: sage },
   ] as const;
 
   return (
@@ -42,7 +51,7 @@ export function AgenticFigure() {
         <g fill="none" stroke={ink} strokeOpacity=".18" strokeWidth="0.75">
           <path d="M 60 40 H 840 M 60 340 H 840" strokeDasharray="3 9" />
           <path d="M 60 170 H 840" strokeDasharray="2 6" strokeOpacity=".25" />
-          <path d="M 170 40 V 340 M 730 40 V 340" strokeDasharray="3 9" />
+          <path d="M 176 40 V 340 M 724 40 V 340" strokeDasharray="3 9" />
           {/* Subtle Corner Fiducials */}
           <path d="M 55 35 H 65 M 60 30 V 40" strokeOpacity=".35" />
           <path d="M 835 35 H 845 M 840 30 V 40" strokeOpacity=".35" />
@@ -54,22 +63,22 @@ export function AgenticFigure() {
         <g fill="none">
           {/* Left Input: Task Spec */}
           <g>
-            <rect x="62" y="146" width="108" height="48" rx="3" fill="#fdfaf3" stroke={ink} strokeWidth="1" strokeOpacity=".4" filter="url(#subtleDrop)" />
-            <path d="M 62 146 H 170 V 158 H 62 Z" fill={ink} fillOpacity=".05" />
-            <text x="116" y="168" textAnchor="middle" style={label} fill={ink} fontWeight="600">INPUT TASK</text>
-            <text x="116" y="184" textAnchor="middle" style={label} fontSize="8" fill={mute}>A2A INGESTION</text>
-            <path d="M 170 170 H 224" stroke={pom} strokeWidth="1.2" strokeDasharray="3 4" />
+            <rect x="40" y="146" width="136" height="48" rx="3" fill="#fdfaf3" stroke={ink} strokeWidth="1" strokeOpacity=".4" filter="url(#subtleDrop)" />
+            <path d="M 40 146 H 176 V 158 H 40 Z" fill={ink} fillOpacity=".05" />
+            <text x="108" y="172" textAnchor="middle" style={label} fill={ink} fontWeight="600">INPUT TASK</text>
+            <text x="108" y="186" textAnchor="middle" style={label} fontSize="8" fill={mute}>A2A INGESTION</text>
+            <path d="M 176 170 H 224" stroke={pom} strokeWidth="1.2" strokeDasharray="3 4" />
             <polygon points="228,170 220,166 220,174" fill={pom} />
           </g>
 
           {/* Right Output: Deterministic Decision */}
           <g>
-            <path d="M 676 170 H 730" stroke={sage} strokeWidth="1.2" strokeDasharray="3 4" />
-            <polygon points="734,170 726,166 726,174" fill={sage} />
-            <rect x="730" y="146" width="112" height="48" rx="3" fill="#fdfaf3" stroke={sage} strokeWidth="1.1" strokeOpacity=".7" filter="url(#subtleDrop)" />
-            <path d="M 730 146 H 842 V 158 H 730 Z" fill={sage} fillOpacity=".08" />
-            <text x="786" y="168" textAnchor="middle" style={label} fill={sage} fontWeight="600">VERIFIED ACTION</text>
-            <text x="786" y="184" textAnchor="middle" style={label} fontSize="8" fill={mute}>RELEASE AUDITED</text>
+            <path d="M 676 170 H 720" stroke={sage} strokeWidth="1.2" strokeDasharray="3 4" />
+            <polygon points="724,170 716,166 716,174" fill={sage} />
+            <rect x="724" y="146" width="136" height="48" rx="3" fill="#fdfaf3" stroke={sage} strokeWidth="1.1" strokeOpacity=".7" filter="url(#subtleDrop)" />
+            <path d="M 724 146 H 860 V 158 H 724 Z" fill={sage} fillOpacity=".08" />
+            <text x="792" y="172" textAnchor="middle" style={label} fill={sage} fontWeight="600" letterSpacing="0.08em">VERIFIED ACTION</text>
+            <text x="792" y="186" textAnchor="middle" style={label} fontSize="8" fill={mute}>RELEASE AUDITED</text>
           </g>
         </g>
 
@@ -128,10 +137,10 @@ export function AgenticFigure() {
           <circle cx="450" cy="170" r="5" fill={pom} />
 
           {/* Core Labels */}
-          <text x="450" y="240" textAnchor="middle" style={label} fill={pom} fontWeight="600" fontSize="10.5">
+          <text x="450" y="244" textAnchor="middle" style={halo} fill={pom} fontWeight="600" fontSize="10.5">
             ORCHESTRATOR
           </text>
-          <text x="450" y="254" textAnchor="middle" style={label} fill={mute} fontSize="7.5">
+          <text x="450" y="258" textAnchor="middle" style={halo} fill={mute} fontSize="7.5">
             A2A PROTOCOL · MCP HOST
           </text>
         </g>
@@ -148,10 +157,10 @@ export function AgenticFigure() {
 
               {/* Node Labels and Subtitles */}
               <text
-                x={agent.anchor === "start" ? agent.x + 28 : agent.anchor === "end" ? agent.x - 28 : agent.x}
-                y={agent.anchor === "middle" ? agent.y - 28 : agent.y + 1}
+                x={agent.anchor === "start" ? agent.x + 28 : agent.x - 28}
+                y={agent.y - 1}
                 textAnchor={agent.anchor}
-                style={label}
+                style={halo}
                 fill={ink}
                 fontWeight="600"
                 fontSize="10"
@@ -159,10 +168,10 @@ export function AgenticFigure() {
                 {agent.num} · {agent.title}
               </text>
               <text
-                x={agent.anchor === "start" ? agent.x + 28 : agent.anchor === "end" ? agent.x - 28 : agent.x}
-                y={agent.anchor === "middle" ? agent.y - 15 : agent.y + 14}
+                x={agent.anchor === "start" ? agent.x + 28 : agent.x - 28}
+                y={agent.y + 12}
                 textAnchor={agent.anchor}
-                style={label}
+                style={halo}
                 fill={mute}
                 fontSize="8"
               >
@@ -343,6 +352,8 @@ export function HiggsFigure() {
           </radialGradient>
         </defs>
 
+        {/* Detector drawn at 0.88× and nudged down so the title has room */}
+        <g transform="translate(450 200) scale(0.88) translate(-450 -190)">
         {/* Precision Measurement Grid & Coordinate Axes */}
         <g fill="none" stroke={ink} strokeOpacity=".18" strokeWidth="0.75">
           <line x1="120" y1="190" x2="780" y2="190" strokeDasharray="2 6" />
@@ -409,20 +420,23 @@ export function HiggsFigure() {
         <circle cx="450" cy="190" r="28" fill="url(#collisionBurst)" />
         <circle cx="450" cy="190" r="4.5" fill={pom} />
         <circle cx="450" cy="190" r="9" fill="none" stroke={pom} strokeWidth="0.8" opacity="0.6" />
+        </g>
 
         {/* Scientific Annotations and Metrics */}
         <g style={label}>
           <text x="450" y="24" textAnchor="middle" fill={ink} fontWeight="600" fontSize="10">
             DETECTOR BARREL CROSS-SECTION · EVENT DISPLAY
           </text>
-          <text x="110" y="60">SILICON PIXEL TRACKER</text>
-          <text x="110" y="74" fill={mute} fontSize="8">σ(rφ) ≈ 10 µm</text>
+          <text x="90" y="64">SILICON PIXEL TRACKER</text>
+          <text x="90" y="78" fill={mute} fontSize="8">σ(rφ) ≈ 10 µm</text>
 
-          <text x="790" y="60" textAnchor="end">ELECTROMAGNETIC CALORIMETER</text>
-          <text x="790" y="74" textAnchor="end" fill={mute} fontSize="8">ECAL CRYSTAL WEDGES</text>
+          <text x="810" y="64" textAnchor="end">ELECTROMAGNETIC CALORIMETER</text>
+          <text x="810" y="78" textAnchor="end" fill={mute} fontSize="8">ECAL CRYSTAL WEDGES</text>
 
-          <text x="450" y="366" textAnchor="middle" fill={pom} fontWeight="600" fontSize="9">
-            H → γγ CANDIDATE · INVARIANT MASS m_γγ ≈ 125 GeV · ML FEATURE EXTRACTION
+          <text x="450" y="370" textAnchor="middle" fill={pom} fontWeight="600" fontSize="9">
+            H → γγ CANDIDATE · INVARIANT MASS m
+            <tspan dy="2.5" fontSize="7">γγ</tspan>
+            <tspan dy="-2.5"> ≈ 125 GeV · ML FEATURE EXTRACTION</tspan>
           </text>
         </g>
       </svg>
@@ -435,144 +449,163 @@ export function HiggsFigure() {
 }
 
 export function DomeFigure() {
-  const constellations = [
-    // Cassiopeia
-    [
-      [270, 110],
-      [300, 132],
-      [340, 118],
-      [380, 142],
-      [420, 126],
-    ],
-    // Orion / Triangle segment
-    [
-      [510, 138],
-      [550, 114],
-      [590, 148],
-      [554, 186],
-      [510, 138],
-    ],
+  // Elevation view of a planetarium dome: horizon at y = HY, zenith at the top.
+  const cx = 450;
+  const HY = 318;
+  const R = 268;
+  const rings = [
+    { r: R, dash: undefined, w: 1.4, o: 0.7 },
+    { r: R * 0.82, dash: "3 6", w: 1, o: 0.45 },
+    { r: R * 0.6, dash: undefined, w: 1, o: 0.4 },
+    { r: R * 0.36, dash: "2 5", w: 1, o: 0.4 },
   ];
+  const lens = { x: cx, y: HY - 30 };
 
-  const stars = [
-    [240, 204],
-    [270, 110],
-    [300, 132],
-    [340, 118],
-    [380, 142],
-    [420, 126],
-    [464, 94],
-    [510, 138],
-    [550, 114],
-    [590, 148],
-    [554, 186],
-    [630, 172],
-    [664, 218],
-    [314, 238],
-    [394, 256],
-    [486, 244],
-    [564, 252],
-    [618, 240],
-    [360, 84],
-    [534, 76],
+  // Recognisable asterisms, placed on the dome surface.
+  const cassiopeia = [
+    [262, 150],
+    [292, 182],
+    [326, 160],
+    [356, 190],
+    [388, 146],
   ];
+  const dipper = [
+    [500, 118],
+    [532, 128],
+    [560, 124],
+    [588, 146],
+    [622, 140],
+    [634, 176],
+    [598, 184],
+    [588, 146],
+  ];
+  const field = [
+    [214, 232], [236, 120], [318, 96], [410, 98], [470, 70], [520, 200],
+    [664, 226], [690, 150], [646, 96], [372, 236], [300, 250], [560, 250],
+    [430, 160], [720, 270], [182, 284],
+  ];
+  const meridians = [-58, -30, 30, 58].map((deg) => {
+    const a = (deg * Math.PI) / 180;
+    const fx = cx + Math.sin(a) * R;
+    return `M ${cx} ${HY - R} Q ${cx + Math.sin(a) * R * 0.9} ${HY - R * 0.62} ${fx} ${HY}`;
+  });
 
   return (
     <figure className="project-figure">
       <svg
         viewBox="0 0 900 380"
         role="img"
-        aria-label="Planetarium full-dome spherical projection schematic: geodesic hemispherical dome coordinate grid, celestial star map projection, optical lens rays, and warping calibration matrices."
+        aria-label="Planetarium full-dome projection schematic: a hemispherical dome with elevation rings and meridians, a fisheye projector at its centre casting rays to the zenith and horizon, and constellations mapped onto the dome surface."
       >
         <defs>
-          <radialGradient id="projectorBeam" cx="50%" cy="100%" r="90%">
-            <stop offset="0%" stopColor="#b08a4a" stopOpacity="0.32" />
-            <stop offset="50%" stopColor="#b08a4a" stopOpacity="0.08" />
-            <stop offset="100%" stopColor="#3f3229" stopOpacity="0" />
+          <radialGradient id="projectorBeam" cx="50%" cy="100%" r="100%">
+            <stop offset="0%" stopColor={gold} stopOpacity="0.3" />
+            <stop offset="55%" stopColor={gold} stopOpacity="0.07" />
+            <stop offset="100%" stopColor={gold} stopOpacity="0" />
           </radialGradient>
+          <clipPath id="domeClip">
+            <path d={`M ${cx - R} ${HY} A ${R} ${R} 0 0 1 ${cx + R} ${HY} Z`} />
+          </clipPath>
         </defs>
 
-        {/* HEMISPHERIC DOME GEODESIC WIREFRAME */}
-        <g fill="none" stroke={ink} strokeWidth="1" opacity=".4">
-          {/* Outer Dome Arc */}
-          <path d="M 120 310 A 330 330 0 0 1 780 310" strokeWidth="1.4" strokeOpacity=".7" />
-          {/* Latitude Arcs (Elevation Rings) */}
-          <path d="M 174 310 A 276 276 0 0 1 726 310" strokeDasharray="3 6" />
-          <path d="M 238 310 A 212 212 0 0 1 662 310" />
-          <path d="M 314 310 A 136 136 0 0 1 586 310" strokeDasharray="2 5" />
+        {/* Light cone filling the dome */}
+        <path
+          d={`M ${lens.x} ${lens.y} L ${cx - R + 30} ${HY - 40} A ${R} ${R} 0 0 1 ${cx + R - 30} ${HY - 40} Z`}
+          fill="url(#projectorBeam)"
+          clipPath="url(#domeClip)"
+        />
 
-          {/* Horizon Floor Line */}
-          <path d="M 90 310 H 810" strokeWidth="1.2" />
-          {/* Base Ellipse Rim */}
-          <ellipse cx="450" cy="310" rx="330" ry="38" opacity=".25" strokeDasharray="2 6" />
-
-          {/* Meridian Longitude Arcs */}
-          <path d="M 450 310 V 46" strokeDasharray="2 7" strokeOpacity=".45" />
-          <path d="M 450 46 C 360 110 310 210 290 310" strokeDasharray="2 8" opacity=".3" />
-          <path d="M 450 46 C 540 110 590 210 610 310" strokeDasharray="2 8" opacity=".3" />
-        </g>
-
-        {/* RADIANT PROJECTION CONE (OPTICAL EMITTER) */}
-        <g fill="none">
-          {/* Beam Fill Triangle */}
-          <path d="M 450 286 L 150 260 A 330 330 0 0 1 750 260 Z" fill="url(#projectorBeam)" stroke="none" />
-
-          {/* Optical Ray Guides */}
-          <g stroke={gold} strokeWidth="0.8" strokeDasharray="3 5" opacity=".55">
-            <line x1="450" y1="286" x2="210" y2="170" />
-            <line x1="450" y1="286" x2="340" y2="108" />
-            <line x1="450" y1="286" x2="450" y2="48" />
-            <line x1="450" y1="286" x2="560" y2="108" />
-            <line x1="450" y1="286" x2="690" y2="170" />
-          </g>
-        </g>
-
-        {/* PROJECTED CONSTELLATION LINES */}
-        <g stroke={pom} strokeWidth="1.1" fill="none" opacity=".65">
-          {constellations.map((c, i) => (
+        {/* Elevation rings and meridians */}
+        <g fill="none" stroke={ink}>
+          {rings.map(({ r, dash, w, o }) => (
             <path
-              key={i}
-              d={c.reduce((acc, pt, idx) => `${acc} ${idx === 0 ? "M" : "L"} ${pt[0]} ${pt[1]}`, "")}
+              key={r}
+              d={`M ${cx - r} ${HY} A ${r} ${r} 0 0 1 ${cx + r} ${HY}`}
+              strokeWidth={w}
+              strokeOpacity={o * 0.6}
+              strokeDasharray={dash}
             />
           ))}
+          <g strokeOpacity=".18" strokeDasharray="2 7">
+            {meridians.map((d) => (
+              <path key={d} d={d} />
+            ))}
+            <path d={`M ${cx} ${HY} V ${HY - R}`} />
+          </g>
+          <path d={`M ${cx - R - 40} ${HY} H ${cx + R + 40}`} strokeWidth="1.2" strokeOpacity=".5" />
+          <ellipse cx={cx} cy={HY} rx={R} ry="22" strokeOpacity=".14" strokeDasharray="2 6" />
         </g>
 
-        {/* PROJECTED STARS */}
-        <g fill={ink} opacity=".8">
-          {stars.map(([x, y], i) => (
-            <g key={i}>
-              <circle cx={x} cy={y} r={i % 3 === 0 ? 2.5 : 1.6} />
-              {i % 4 === 0 && (
-                <circle cx={x} cy={y} r="5" fill="none" stroke={gold} strokeWidth="0.6" opacity="0.6" />
-              )}
-            </g>
+        {/* Optical rays from the fisheye lens */}
+        <g stroke={gold} strokeWidth="0.8" strokeDasharray="3 5" opacity=".6">
+          {[-80, -50, -22, 0, 22, 50, 80].map((deg) => {
+            const a = (deg * Math.PI) / 180;
+            return (
+              <line
+                key={deg}
+                x1={lens.x}
+                y1={lens.y}
+                x2={cx + Math.sin(a) * R * 0.985}
+                y2={HY - Math.cos(a) * R * 0.985 - (Math.abs(deg) > 60 ? 30 : 0)}
+              />
+            );
+          })}
+        </g>
+
+        {/* Constellations */}
+        <g clipPath="url(#domeClip)">
+        <g stroke={pom} strokeWidth="1.1" fill="none" strokeOpacity=".6" strokeLinejoin="round">
+          <polyline points={cassiopeia.map((p) => p.join(",")).join(" ")} />
+          <polyline points={dipper.map((p) => p.join(",")).join(" ")} />
+        </g>
+        <g fill={ink}>
+          {[...cassiopeia, ...dipper.slice(0, 7)].map(([x, y]) => (
+            <circle key={`${x}-${y}`} cx={x} cy={y} r="2.4" opacity=".85" />
+          ))}
+          {field.map(([x, y], i) => (
+            <circle key={`f-${x}-${y}`} cx={x} cy={y} r={i % 3 === 0 ? 1.7 : 1.1} opacity=".55" />
           ))}
         </g>
-
-        {/* CENTRAL FISHEYE LENS EMITTER */}
-        <g id="projector-base">
-          {/* Housing stand */}
-          <rect x="432" y="296" width="36" height="14" rx="2" fill={ink} fillOpacity=".7" />
-          {/* Lens Cone */}
-          <path d="M 426 296 L 442 278 H 458 L 474 296 Z" fill={ink} />
-          {/* Optical Lens Core */}
-          <circle cx="450" cy="276" r="6" fill={gold} />
-          <circle cx="450" cy="276" r="10" fill="none" stroke={gold} strokeWidth="0.8" opacity="0.5" />
         </g>
 
-        {/* Technical Calibration Grid Crosshairs & Metadata */}
-        <g style={label}>
-          <text x="450" y="24" textAnchor="middle" fill={ink} fontWeight="600" fontSize="10">
-            180° × 360° FULL-DOME PROJECTION · SPHERICAL MAPPING
-          </text>
-          <text x="120" y="328">0° HORIZON</text>
-          <text x="450" y="328" textAnchor="middle">ZENITH (90°)</text>
-          <text x="780" y="328" textAnchor="end">OPTICAL RIG</text>
+        {/* Fisheye projector */}
+        <g>
+          <rect x={cx - 20} y={HY - 14} width="40" height="14" rx="2" fill={ink} fillOpacity=".75" />
+          <path d={`M ${cx - 22} ${HY - 14} L ${cx - 9} ${lens.y + 4} H ${cx + 9} L ${cx + 22} ${HY - 14} Z`} fill={ink} />
+          <circle cx={lens.x} cy={lens.y} r="6.5" fill={gold} />
+          <circle cx={lens.x} cy={lens.y} r="11" fill="none" stroke={gold} strokeWidth="0.8" opacity=".5" />
+        </g>
 
-          <text x="450" y="366" textAnchor="middle" fill={mute} fontSize="8.5">
-            NON-LINEAR WARPING MATRIX · REAL-TIME OPENGL/VULKAN SHADERS · MULTI-CHANNEL BLEND
+        {/* Annotations */}
+        <g style={halo}>
+          <text x="40" y="34" fill={ink} fontWeight="600">
+            180° × 360° FULL-DOME PROJECTION
+          </text>
+          <text x="40" y="48" fontSize="8">
+            SPHERICAL MAPPING · FISHEYE OPTICS
+          </text>
+          <text x={cx + 14} y={HY - R + 16} fontSize="8.5">
+            ZENITH · 90°
+          </text>
+          <text x="352" y="214" fontSize="7.5" textAnchor="middle">
+            CASSIOPEIA
+          </text>
+          <text x="566" y="210" fontSize="7.5" textAnchor="middle">
+            URSA MAJOR
+          </text>
+          <text x={cx - R} y={HY + 18}>
+            0° HORIZON
+          </text>
+          <text x={cx} y={HY + 18} textAnchor="middle">
+            FISHEYE PROJECTOR
+          </text>
+          <text x={cx + R} y={HY + 18} textAnchor="end">
+            HORIZON 0°
           </text>
         </g>
+        <text x="450" y="368" textAnchor="middle" style={label} fill={mute} fontSize="8.5">
+          NON-LINEAR WARPING MATRIX · REAL-TIME OPENGL/VULKAN SHADERS · MULTI-CHANNEL BLEND
+        </text>
       </svg>
       <figcaption>
         <span>Fig. D — Full-dome spherical projection &amp; calibration</span>
