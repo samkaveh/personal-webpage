@@ -4,6 +4,7 @@ import { ArrowUpRight } from "../components/site/Icons";
 import VideoEmbed from "../components/site/VideoEmbed";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/talks/" },
   title: "Talks",
   description:
     "Talks and presentations by Sam Kaveh, including PyCon & PyData DE 2025 on building a Rust physics engine with Python integration.",

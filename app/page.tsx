@@ -1,11 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import InkBackdrop from "./components/site/InkBackdrop";
 import LeafDrift from "./components/site/LeafDrift";
 import VideoEmbed from "./components/site/VideoEmbed";
 import { ArrowUpRight, PomegranateMark } from "./components/site/Icons";
+import { asset } from "./lib/asset";
+import { excerpt, formatDate, getPosts } from "./lib/posts";
 
 const work = [
   {
@@ -54,56 +54,14 @@ const marquee = [
   "English · Deutsch",
 ];
 
-const months = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
-
-function formatDate(value: string) {
-  const [year, month, day] = value.split("-").map(Number);
-  if (!year || !month || !day) return value;
-  return `${day} ${months[month - 1]} ${year}`;
-}
-
-function excerpt(markdown: string) {
-  const plain = markdown
-    .replace(/```[\s\S]*?```/g, " ")
-    .replace(/^---[\s\S]*?---/g, " ")
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ")
-    .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
-    .replace(/[#>*_`~]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-  return plain.length > 190 ? `${plain.slice(0, 190).trimEnd()}…` : plain;
-}
-
-function getPosts() {
-  const contentDir = path.join(process.cwd(), "content");
-  return fs
-    .readdirSync(contentDir)
-    .filter((file) => file.endsWith(".md"))
-    .map((file) => {
-      const source = fs.readFileSync(path.join(contentDir, file), "utf-8");
-      const { data, content } = matter(source);
-      return {
-        slug: file.replace(/\.md$/, ""),
-        title: (data.title as string) || file,
-        date: (data.date as string) || "",
-        excerpt: excerpt(content),
-      };
-    })
-    .sort((a, b) => (a.date < b.date ? 1 : -1));
-}
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+    types: {
+      "application/rss+xml": [{ url: "/feed.xml", title: "Sam Kaveh — Writing" }],
+    },
+  },
+};
 
 export default function Home() {
   const posts = getPosts();
@@ -224,6 +182,22 @@ export default function Home() {
                 <PomegranateMark className="about-mark" />
               </div>
             </div>
+
+            <figure className="about-plate" data-reveal>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={asset("/art/pomegranate-specimen.svg")}
+                alt="Ink drawing of a pomegranate branch with whole fruit, a cross-section of seeds and a blossom, in the style of a botanical plate."
+                width={360}
+                height={460}
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>
+                <span>Tab. IV</span>
+                <span>A favourite fruit</span>
+              </figcaption>
+            </figure>
           </div>
 
           <dl className="facts">
@@ -387,7 +361,7 @@ export default function Home() {
                 <span className="post-date">{formatDate(post.date)}</span>
                 <h3 className="post-title">
                   {post.title}
-                  <span className="post-excerpt">{post.excerpt}</span>
+                  <span className="post-excerpt">{excerpt(post.content, 190)}</span>
                 </h3>
                 <ArrowUpRight className="post-arrow" />
               </Link>

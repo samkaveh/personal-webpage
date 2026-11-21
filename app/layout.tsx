@@ -5,6 +5,7 @@ import Script from "next/script";
 import SiteNav from "./components/site/SiteNav";
 import SiteFooter from "./components/site/SiteFooter";
 import Motion from "./components/site/Motion";
+import { SITE_URL } from "./lib/site";
 
 const display = Fraunces({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(`${SITE_URL}/`),
   title: {
     default: "Sam Kaveh — Staff Software Engineer & AI Systems Architect",
     template: "%s — Sam Kaveh",
@@ -38,7 +40,40 @@ export const metadata: Metadata = {
     description:
       "Staff Software Engineer specializing in applied ML/AI, agentic systems, and high-scale data platforms.",
     type: "website",
+    siteName: "Sam Kaveh",
+    url: "/",
   },
+  twitter: {
+    card: "summary",
+  },
+  alternates: {
+    types: {
+      "application/rss+xml": [{ url: "/feed.xml", title: "Sam Kaveh — Writing" }],
+    },
+  },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Sam Kaveh",
+  honorificSuffix: "PhD",
+  jobTitle: "Staff Software Engineer",
+  url: `${SITE_URL}/`,
+  sameAs: [
+    "https://www.linkedin.com/in/sam-kaveh/",
+    "https://github.com/samkaveh",
+  ],
+  knowsAbout: [
+    "Agentic AI",
+    "Machine learning",
+    "Demand forecasting",
+    "MLOps",
+    "Distributed data systems",
+    "Rust",
+    "Python",
+  ],
+  alumniOf: { "@type": "CollegeOrUniversity", name: "University of Hamburg" },
 };
 
 export const viewport = {
@@ -58,6 +93,10 @@ export default function RootLayout({
       className={`${display.variable} ${sans.variable} ${mono.variable}`}
     >
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <noscript>
           <style>{`[data-reveal]{opacity:1 !important;transform:none !important}`}</style>
         </noscript>

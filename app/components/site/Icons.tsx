@@ -1,50 +1,27 @@
+/**
+ * The site mark: a pomegranate in two fine lines — one continuous stroke for
+ * the fruit and its crown, and a faint rib for volume. Drawn in
+ * `currentColor`; set `--mark-weight` in CSS to thin the strokes when the
+ * mark is shown large (default 1).
+ */
 export function PomegranateMark({ className = "" }: { className?: string }) {
+  const w = (px: number) => ({ strokeWidth: `calc(${px}px * var(--mark-weight, 1))` });
   return (
     <svg
       viewBox="0 0 32 32"
       className={className}
       fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       aria-hidden="true"
       focusable="false"
     >
-      {/* Botanical calyx (crown) */}
       <path
-        d="M12.2 9.8 L11 5.4 C11 5.4 12.8 6.9 14 7.6 L15.6 3.8 L16.8 7.8 C17.9 7 19.8 5.6 19.8 5.6 L18.8 9.9"
-        stroke="currentColor"
-        strokeWidth="1.3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d="M13.8 10.3C14.1 9.2 14 8.1 12.7 6.2C14.1 6.6 15 7.2 15.4 7.9C15.6 6.8 15.8 5.9 16 4.9C16.2 5.9 16.4 6.8 16.6 7.9C17 7.2 17.9 6.6 19.3 6.2C18 8.1 17.9 9.2 18.2 10.3A9.5 9.5 0 1 1 13.8 10.3Z"
+        style={w(1.2)}
       />
-      {/* Calyx base collar */}
-      <path
-        d="M12.8 10.2 C14.2 11 17 11 18.4 10.1"
-        stroke="currentColor"
-        strokeWidth="1.1"
-        strokeLinecap="round"
-      />
-      {/* Pomegranate fruit body */}
-      <path
-        d="M16 10.2 C10.8 10.2 7.2 14.1 7.2 19 C7.2 24.3 11 28.2 16 28.2 C21 28.2 24.8 24.3 24.8 19 C24.8 14.1 21.2 10.2 16 10.2 Z"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      {/* Subtle inner botanical section arc */}
-      <path
-        d="M16 13.5 C12.6 14.2 10.5 17 10.5 20.4 C10.5 23.5 12.8 25.8 16 26"
-        stroke="currentColor"
-        strokeWidth="0.9"
-        strokeDasharray="1.5 2.5"
-        strokeLinecap="round"
-        opacity="0.45"
-      />
-      {/* Stylized internal aril/seed dots */}
-      <circle cx="14" cy="18" r="1" fill="currentColor" opacity="0.65" />
-      <circle cx="17.2" cy="17" r="1.1" fill="currentColor" opacity="0.75" />
-      <circle cx="15.8" cy="20.5" r="1" fill="currentColor" opacity="0.65" />
-      <circle cx="18.5" cy="19.8" r="0.9" fill="currentColor" opacity="0.55" />
-      <circle cx="13.2" cy="21.5" r="0.8" fill="currentColor" opacity="0.45" />
+      <path d="M15 12.2C12.3 14.6 11.6 21.8 14.6 27.4" opacity=".4" style={w(1)} />
     </svg>
   );
 }
