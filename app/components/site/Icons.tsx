@@ -1,7 +1,7 @@
 /**
- * The site mark: a pomegranate with its crown of sepals, one leaf, a glint of
- * gloss and three arils. Drawn in `currentColor`, so it takes the colour of
- * wherever it sits. Set `--mark-weight` in CSS to thin the strokes when the
+ * The site mark: a pomegranate in two fine lines — one continuous stroke for
+ * the fruit and its crown, and a faint rib for volume. Drawn in
+ * `currentColor`; set `--mark-weight` in CSS to thin the strokes when the
  * mark is shown large (default 1).
  */
 export function PomegranateMark({ className = "" }: { className?: string }) {
@@ -17,42 +17,11 @@ export function PomegranateMark({ className = "" }: { className?: string }) {
       aria-hidden="true"
       focusable="false"
     >
-      {/* leaf */}
       <path
-        d="M19.6 9.4C20.9 6.9 23.4 5.6 26.4 5.8C25.3 8.4 22.8 9.9 19.6 9.4Z"
-        fill="currentColor"
-        fillOpacity=".3"
-        style={w(1)}
+        d="M13.8 10.3C14.1 9.2 14 8.1 12.7 6.2C14.1 6.6 15 7.2 15.4 7.9C15.6 6.8 15.8 5.9 16 4.9C16.2 5.9 16.4 6.8 16.6 7.9C17 7.2 17.9 6.6 19.3 6.2C18 8.1 17.9 9.2 18.2 10.3A9.5 9.5 0 1 1 13.8 10.3Z"
+        style={w(1.2)}
       />
-      <path d="M20.2 9.1C21.9 8 23.6 7.1 25.4 6.4" opacity=".6" style={w(0.6)} />
-      {/* fruit */}
-      <path
-        d="M16 11.4C21.8 11.4 26.1 15.3 26.1 20.3C26.1 25.5 21.7 29.1 16 29.1C10.3 29.1 5.9 25.5 5.9 20.3C5.9 15.3 10.2 11.4 16 11.4Z"
-        fill="currentColor"
-        fillOpacity=".1"
-        style={w(1.4)}
-      />
-      {/* crown: a short neck with flared sepals */}
-      <path
-        d="M13.3 11.9C13.6 10.7 13.7 9.6 13.5 8.6L11.2 6.1L14.3 7.3L15.1 4.9L16 6.9L16.9 4.9L17.7 7.3L20.8 6.1L18.5 8.6C18.3 9.6 18.4 10.7 18.7 11.9"
-        fill="currentColor"
-        fillOpacity=".1"
-        style={w(1.3)}
-      />
-      {/* gloss */}
-      <path d="M9.4 18.6C9.9 16.4 11.4 14.8 13.4 14.1" opacity=".5" style={w(1.2)} />
-      {/* arils */}
-      <g fill="currentColor" stroke="none">
-        <path d="M18.3 19.4c1.2.3 1.6 1.6.9 2.6c-.6.9-1.9.8-2.3-.2c-.4-.9.2-2.6 1.4-2.4Z" />
-        <path
-          d="M21.5 18.2c1 .4 1.3 1.5.7 2.3c-.6.7-1.7.6-2-.2c-.3-.8.3-2.3 1.3-2.1Z"
-          opacity=".75"
-        />
-        <path
-          d="M20.9 22.1c1.1.3 1.4 1.5.8 2.3c-.6.8-1.8.7-2.1-.2c-.4-.9.2-2.3 1.3-2.1Z"
-          opacity=".88"
-        />
-      </g>
+      <path d="M15 12.2C12.3 14.6 11.6 21.8 14.6 27.4" opacity=".4" style={w(1)} />
     </svg>
   );
 }
